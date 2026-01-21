@@ -1,7 +1,11 @@
-BridgeSimulator
+# BridgeSimulator
+
 Academic simulator for the structural analysis of 2D truss bridges based on **statics** and **structural equilibrium** principles.
 
-Academic context
+---
+
+## Academic context
+
 BridgeSimulator was developed as an **academic project** for educational purposes, focused on understanding the internal behavior of truss bridge structures.
 
 The main goal is to apply concepts from:
@@ -11,8 +15,6 @@ The main goal is to apply concepts from:
 * Linear algebra
 * Structural modeling
 * Object-oriented programming
-
-This software is **not intended for professional design or real-world structural validation**.
 
 ---
 
@@ -52,7 +54,7 @@ This software is **not intended for professional design or real-world structural
 From the project root directory:
 
 ```bash
-python BridgeSimulator.py
+python INTERFACE.py
 ```
 
 Make sure the files `BACKEND.py` and `CORE.py` are located in the same directory.
@@ -61,14 +63,8 @@ Make sure the files `BACKEND.py` and `CORE.py` are located in the same directory
 
 ## Project structure
 
-* `BridgeSimulator.py` — Graphical interface and application controller
+* `INTERFACE.py` — Graphical interface and application controller
 * `BACKEND.py` — Bridge generation and structural calculations
 * `CORE.py` — Node, bar, and matrix operation definitions
 
 ---
-
-## Disclaimer
-
-This software was developed **strictly for academic purposes**.
-
-It must not be used for real structural design, verification, construction, or safety-critical decision making.
