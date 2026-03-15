@@ -415,18 +415,19 @@ class BridgeSimulator:
         margin = 0.8
         scale  = min((canvas_w * margin) / bridge_w, (canvas_h * margin) / bridge_h)
 
-        # Centering offsets
-        cx = (min_x + max_x) / 2
-        offset_x = (canvas_w / 2) - cx * scale + self.pan_offset[0]
-        offset_y = (-canvas_h / 2 + 50) - (min_y * scale) + self.pan_offset[1]
+        # FIX: center both horizontally and vertically
+        center_x_model = (min_x + max_x) / 2
+        center_y_model = (min_y + max_y) / 2
+        offset_x = -center_x_model * scale + self.pan_offset[0]
+        offset_y = -center_y_model * scale + self.pan_offset[1]
 
         self.turtle_pen.speed(0)
         self.turtle_pen.width(3)
 
         # Draw bars (coloured by stress if analysis has been run)
-        n_bars     = len(self.current_bridge.bars_dir)
-        max_force  = (max(abs(f) for f in self.current_forces[:n_bars])
-                      if self.current_forces and n_bars > 0 else 1)
+        n_bars    = len(self.current_bridge.bars_dir)
+        max_force = (max(abs(f) for f in self.current_forces[:n_bars])
+                     if self.current_forces and n_bars > 0 else 1)
 
         for idx, bar in enumerate(self.current_bridge.bars_dir.values()):
             if idx < len(self.current_forces):
